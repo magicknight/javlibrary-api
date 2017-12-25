@@ -2,13 +2,13 @@
 /* global describe it */
 
 var assert = require('assert');
-var utils = require('../lib/utils');
+var helper = require('../utils/helper');
 
-describe('utils', function() {
+describe('helper', function() {
     describe('getVideoID', function() {
         it('return the video id', function() {
             assert.equal(
-                utils.getVideoID('videoreviews.php?v=javli4qtzi&mode=2'),
+                helper.getVideoID('videoreviews.php?v=javli4qtzi&mode=2'),
                 'javli4qtzi'
             );
         });
@@ -17,7 +17,7 @@ describe('utils', function() {
     describe('getDirectorID', function() {
         it('return the director id', function() {
             assert.equal(
-                utils.getDirectorID('vl_director.php?d=p4'),
+                helper.getDirectorID('vl_director.php?d=p4'),
                 'p4'
             );
         });
@@ -26,7 +26,7 @@ describe('utils', function() {
     describe('getMakerID', function() {
         it('return the maker id', function() {
             assert.equal(
-                utils.getMakerID('vl_maker.php?m=m46a'),
+                helper.getMakerID('vl_maker.php?m=m46a'),
                 'm46a'
             );
         });
@@ -35,7 +35,7 @@ describe('utils', function() {
     describe('getLabelID', function() {
         it('return the label id', function() {
             assert.equal(
-                utils.getLabelID('vl_label.php?l=arace'),
+                helper.getLabelID('vl_label.php?l=arace'),
                 'arace'
             );
         });
@@ -44,7 +44,7 @@ describe('utils', function() {
     describe('getTagID', function() {
         it('return the tag id', function() {
             assert.equal(
-                utils.getTagID('vl_genre.php?g=lq'),
+                helper.getTagID('vl_genre.php?g=lq'),
                 'lq',
             );
         });
@@ -53,7 +53,7 @@ describe('utils', function() {
     describe('getCastID', function() {
         it('return the cast id', function() {
             assert.equal(
-                utils.getCastID('vl_star.php?s=pqaq'),
+                helper.getCastID('vl_star.php?s=pqaq'),
                 'pqaq',
             );
         });
@@ -62,7 +62,7 @@ describe('utils', function() {
     describe('getLargeImage', function() {
         it('return the large image', function() {
             assert.equal(
-                utils.getLargeImage('http://pics.dmm.co.jp/digital/video/bbi00142/bbi00142-1.jpg'),
+                helper.getLargeImage('http://pics.dmm.co.jp/digital/video/bbi00142/bbi00142-1.jpg'),
                 'http://pics.dmm.co.jp/digital/video/bbi00142/bbi00142jp-1.jpg',
             );
         });
