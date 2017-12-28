@@ -4,7 +4,6 @@
 
 # Other
 #
-dist/
 release/
 package-lock.json
 test.js
