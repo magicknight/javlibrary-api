@@ -1,7 +1,7 @@
 {
-  "name": "avAngel-server",
+  "name": "javlibrary-api",
   "version": "1.0.0",
-  "description": "Crawing javlibrary.com and avgle.com",
+  "description": "A Javlibrary.com API client library wrapper with a simple and clean interface.",
   "main": "index.js",
   "scripts": {
     "lint": "node node_modules/.bin/eslint .",
