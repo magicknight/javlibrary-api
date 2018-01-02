@@ -25,7 +25,7 @@ var URL_FAVSTAR = '/mv_favstars.php';
 var URL_REMOVEFAVSTAR = '/mv_favstars.php';
 var URL_VIDEODETAIL = '/?v=';
 var URL_VIDEOCOMMENTS = '/videocomments.php?v=';
-var URL_VIDEOREVIEWS = '/videoreviews.php?v=';
+var URL_VIDEOREVIEWS = '/videoreviews.php?mode=2&v=';
 var URL_LISTBYSTAR = '/vl_star.php?s=';
 var URL_LISTBYDIRECTOR = '/vl_director.php?d=';
 var URL_LISTBYTAG = '/vl_genre.php?g=';
