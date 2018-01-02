@@ -134,7 +134,7 @@ module.exports = function () {
                                 selector: '#video_review .score',
                                 how: 'html',
                                 convert: function convert(x) {
-                                    return +x.substring(1, x.length - 1);
+                                    return x ? +x.substring(1, x.length - 1) : 0;
                                 }
                             },
                             tags: {
