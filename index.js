@@ -9,6 +9,7 @@ module.exports = {
     getBestRated: require('./lib/getBestRated'),
     getVideoDetail: require('./lib/getVideoDetail'),
     getVideoComments: require('./lib/getVideoComments'),
+    getVideoReviews: require('./lib/getVideoReviews'),
     getVideoURL: require('./lib/getVideoURL'),
     listByStar: require('./lib/listByStar'),
     listByDirector: require('./lib/listByDirector'),

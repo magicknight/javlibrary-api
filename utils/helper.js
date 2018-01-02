@@ -15,6 +15,7 @@ const URL_FAVSTAR = '/mv_favstars.php';
 const URL_REMOVEFAVSTAR = '/mv_favstars.php';
 const URL_VIDEODETAIL = '/?v=';
 const URL_VIDEOCOMMENTS = '/videocomments.php?v=';
+const URL_VIDEOREVIEWS = '/videoreviews.php?v=';
 const URL_LISTBYSTAR = '/vl_star.php?s=';
 const URL_LISTBYDIRECTOR = '/vl_director.php?d=';
 const URL_LISTBYTAG = '/vl_genre.php?g=';
@@ -132,6 +133,7 @@ module.exports = {
     URL_FAVSTAR,
     URL_REMOVEFAVSTAR,
     URL_VIDEOCOMMENTS,
+    URL_VIDEOREVIEWS,
     URL_LISTBYSTAR,
     URL_LISTBYDIRECTOR,
     URL_LISTBYTAG,
