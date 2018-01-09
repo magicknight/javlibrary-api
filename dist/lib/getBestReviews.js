@@ -18,6 +18,8 @@ var _request2 = _interopRequireDefault(_request);
 
 var _helper = require('../utils/helper');
 
+var _helper2 = _interopRequireDefault(_helper);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -77,7 +79,10 @@ module.exports = function () {
                                     },
                                     name: {
                                         selector: 'strong a',
-                                        how: 'html'
+                                        how: 'html',
+                                        convert: function convert(x) {
+                                            return _helper2.default.exactly(x);
+                                        }
                                     },
                                     date: {
                                         selector: '.videoinfo tr:nth-child(1) td:last-child',
