@@ -66,6 +66,14 @@ function getLargeImage(url) {
     return url;
 }
 
+function exactly(name) {
+    if (name) {
+        name = name.replace(/^[\w]+-[\d]+\s+/, '');
+    }
+
+    return name;
+}
+
 function parseList(html, options) {
     var $ = cheerio.load(html, {
         decodeEntities: false,
@@ -148,6 +156,7 @@ module.exports = {
     getCastID,
     getLargeImage,
 
+    exactly,
     parseList,
 };
 
