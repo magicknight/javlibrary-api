@@ -177,8 +177,8 @@ module.exports = function () {
                                 attr: 'src',
                                 convert: function convert(x) {
                                     return {
-                                        small: x.substring(2, x.length).replace(/pl\./, 'ps.'),
-                                        large: x.substring(2, x.length)
+                                        small: (0, _helper.getLink)(x.substring(2, x.length).replace(/pl\./, 'ps.')),
+                                        large: (0, _helper.getLink)(x.substring(2, x.length))
                                     };
                                 }
                             },
@@ -189,8 +189,8 @@ module.exports = function () {
                                         attr: 'src',
                                         convert: function convert(x) {
                                             return {
-                                                small: x,
-                                                large: (0, _helper.getLargeImage)(x)
+                                                small: (0, _helper.getLink)(x),
+                                                large: (0, _helper.getLink)((0, _helper.getLargeImage)(x))
                                             };
                                         }
                                     }
@@ -215,8 +215,8 @@ module.exports = function () {
 
 
                                 previews.push({
-                                    small: image,
-                                    large: (0, _helper.getLargeImage)(image)
+                                    small: (0, _helper.getLink)(image),
+                                    large: (0, _helper.getLink)((0, _helper.getLargeImage)(image))
                                 });
                             }
 

@@ -42,6 +42,14 @@ function getResourceID(regex, link) {
     return link;
 }
 
+function getLink(string) {
+    if (string && !string.startsWith('http')) {
+        return 'https://' + string;
+    }
+
+    return string;
+}
+
 function getVideoID(link) {
     return getResourceID(/v=(jav[^&]+)/, link);
 }
@@ -111,8 +119,8 @@ function parseList(html, options) {
                     attr: 'src',
                     convert: function convert(x) {
                         return {
-                            small: x.substring(2, x.length),
-                            large: x.substring(2, x.length).replace(/ps\./, 'pl.')
+                            small: getLink(x.substring(2, x.length)),
+                            large: getLink(x.substring(2, x.length).replace(/ps\./, 'pl.'))
                         };
                     }
                 }
@@ -160,6 +168,7 @@ module.exports = {
     URL_LISTBYLABEL: URL_LISTBYLABEL,
 
     getVideoID: getVideoID,
+    getLink: getLink,
     getDirectorID: getDirectorID,
     getMakerID: getMakerID,
     getLabelID: getLabelID,

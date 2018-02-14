@@ -144,8 +144,8 @@ module.exports = function () {
                                         attr: 'src',
                                         convert: function convert(x) {
                                             return {
-                                                small: x.substring(2, x.length),
-                                                large: x.substring(2, x.length).replace(/ps\./, 'pl.')
+                                                small: _helper2.default.getLink(x.substring(2, x.length)),
+                                                large: _helper2.default.getLink(x.substring(2, x.length).replace(/ps\./, 'pl.'))
                                             };
                                         }
                                     }

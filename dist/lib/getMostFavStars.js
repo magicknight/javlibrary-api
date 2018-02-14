@@ -69,7 +69,7 @@ module.exports = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(functio
                                     selector: 'img',
                                     attr: 'src',
                                     convert: function convert(x) {
-                                        return x.substring(2, x.length);
+                                        return (0, _helper.getLink)(x.substring(2, x.length));
                                     }
                                 }
                             }
