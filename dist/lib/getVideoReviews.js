@@ -31,9 +31,9 @@ var error = (0, _debug3.default)('dev:' + __filename);
     comments: [
         {
             location: '',
-            nickname: '',
+            username: '',
             date: '',
-            desc: '',
+            content: '',
         }
     ]
  }
@@ -69,7 +69,7 @@ module.exports = function () {
                                             }
                                         }
                                     },
-                                    nickname: {
+                                    username: {
                                         selector: '.userid a',
                                         how: 'html'
                                     },
@@ -77,7 +77,7 @@ module.exports = function () {
                                         selector: '.date',
                                         how: 'html'
                                     },
-                                    desc: {
+                                    content: {
                                         selector: 'textarea',
                                         how: 'html'
                                     }

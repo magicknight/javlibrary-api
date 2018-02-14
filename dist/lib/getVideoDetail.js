@@ -57,24 +57,26 @@ var error = (0, _debug3.default)('dev:' + __filename);
             id: '',
         }
     ],
-    preview: [
+    previews: [
         '', '', '',
     ],
  }
  * */
 module.exports = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
-        var response, $, data, _id, preview, length, image;
+        var response, $, data, _id, previews, length, image;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
-                        _context.prev = 0;
-                        _context.next = 3;
+                        debug(id);
+
+                        _context.prev = 1;
+                        _context.next = 4;
                         return _request2.default.get('' + _helper.URL_VIDEODETAIL + id);
 
-                    case 3:
+                    case 4:
                         response = _context.sent;
                         $ = _cheerio2.default.load(response, {
                             decodeEntities: false
@@ -156,7 +158,7 @@ module.exports = function () {
                                     }
                                 }
                             },
-                            cast: {
+                            stars: {
                                 listItem: '#video_cast .star a',
                                 data: {
                                     name: {
@@ -180,7 +182,7 @@ module.exports = function () {
                                     };
                                 }
                             },
-                            preview: {
+                            previews: {
                                 listItem: '.previewthumbs img',
                                 data: {
                                     img: {
@@ -197,23 +199,29 @@ module.exports = function () {
                         });
 
 
-                        if (data.preview.length === 0 && data.cover.small.startsWith('pics.dmm.co.jp')) {
+                        if (data.previews) {
+                            data.previews = data.previews.map(function (e) {
+                                return e.img;
+                            });
+                        }
+
+                        if (data.previews.length === 0 && data.cover.small.startsWith('pics.dmm.co.jp')) {
                             _id = data.cover.small.split('/')[4].replace(/(\d{3})$/, '00$1');
-                            preview = [];
+                            previews = [];
 
 
                             for (length = 10; length > 0;) {
                                 image = 'pics.dmm.co.jp/digital/video/' + _id + '/' + _id + '-' + length-- + '.jpg';
 
 
-                                preview.push({
+                                previews.push({
                                     small: image,
                                     large: (0, _helper.getLargeImage)(image)
                                 });
                             }
 
-                            data.preview = preview.reverse();
-                            debug('Get Previews:\n%O', preview);
+                            data.previews = previews.reverse();
+                            debug('Get Previews:\n%O', previews);
                         }
 
                         data.id = id;
@@ -221,18 +229,18 @@ module.exports = function () {
 
                         return _context.abrupt('return', data);
 
-                    case 12:
-                        _context.prev = 12;
-                        _context.t0 = _context['catch'](0);
+                    case 14:
+                        _context.prev = 14;
+                        _context.t0 = _context['catch'](1);
 
                         error('%O', _context.t0);
 
-                    case 15:
+                    case 17:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, undefined, [[0, 12]]);
+        }, _callee, undefined, [[1, 14]]);
     }));
 
     return function (_x) {
