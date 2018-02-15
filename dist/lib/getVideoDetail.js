@@ -64,7 +64,7 @@ var error = (0, _debug3.default)('dev:' + __filename);
  * */
 module.exports = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
-        var response, $, data, _id, previews, length, image;
+        var response, $, data, parts, _id, previews, length, image;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -205,8 +205,9 @@ module.exports = function () {
                             });
                         }
 
-                        if (data.previews.length === 0 && data.cover.small.startsWith('pics.dmm.co.jp')) {
-                            _id = data.cover.small.split('/')[4].replace(/(\d{3})$/, '00$1');
+                        if (data.previews.length === 0 && data.cover.small.indexOf('pics.dmm.co.jp') !== -1) {
+                            parts = data.cover.small.split('/');
+                            _id = parts[parts.length - 2].replace(/(\d{3})$/, '00$1');
                             previews = [];
 
 
