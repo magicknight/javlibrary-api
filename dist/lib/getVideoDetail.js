@@ -207,22 +207,26 @@ module.exports = function () {
 
                         if (data.previews.length === 0 && data.cover.small.indexOf('pics.dmm.co.jp') !== -1) {
                             parts = data.cover.small.split('/');
-                            _id = parts[parts.length - 2].replace(/(\d{3})$/, '00$1');
+                            _id = parts[parts.length - 2];
                             previews = [];
 
 
-                            for (length = 10; length > 0;) {
-                                image = 'pics.dmm.co.jp/digital/video/' + _id + '/' + _id + '-' + length-- + '.jpg';
+                            if (/(\d{3})$/.test(_id)) {
+                                _id = _id.replace(/(\d{3})$/, '00$1');
+
+                                for (length = 10; length > 0;) {
+                                    image = 'pics.dmm.co.jp/digital/video/' + _id + '/' + _id + '-' + length-- + '.jpg';
 
 
-                                previews.push({
-                                    small: (0, _helper.getLink)(image),
-                                    large: (0, _helper.getLink)((0, _helper.getLargeImage)(image))
-                                });
+                                    previews.push({
+                                        small: (0, _helper.getLink)(image),
+                                        large: (0, _helper.getLink)((0, _helper.getLargeImage)(image))
+                                    });
+                                }
+
+                                data.previews = previews.reverse();
+                                debug('Get Previews:\n%O', previews);
                             }
-
-                            data.previews = previews.reverse();
-                            debug('Get Previews:\n%O', previews);
                         }
 
                         data.id = id;
