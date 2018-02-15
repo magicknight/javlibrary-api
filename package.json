@@ -1,6 +1,6 @@
 {
   "name": "javlibrary-api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Javlibrary.com API client library wrapper with a simple and clean interface.",
   "main": "dist/index.js",
   "scripts": {
