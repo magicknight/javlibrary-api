@@ -31,6 +31,7 @@ var URL_LISTBYDIRECTOR = '/vl_director.php?d=';
 var URL_LISTBYTAG = '/vl_genre.php?g=';
 var URL_LISTBYMAKER = '/vl_maker.php?m=';
 var URL_LISTBYLABEL = '/vl_label.php?l=';
+var URL_SEARCH = 'http://www.javlibrary.com/en/vl_searchbyid.php?keyword=';
 
 function getResourceID(regex, link) {
     var match = link.match(regex);
@@ -166,6 +167,7 @@ module.exports = {
     URL_LISTBYTAG: URL_LISTBYTAG,
     URL_LISTBYMAKER: URL_LISTBYMAKER,
     URL_LISTBYLABEL: URL_LISTBYLABEL,
+    URL_SEARCH: URL_SEARCH,
 
     getVideoID: getVideoID,
     getLink: getLink,

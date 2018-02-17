@@ -18,5 +18,6 @@ module.exports = {
     listByTag: require('./lib/listByTag'),
     listByMaker: require('./lib/listByMaker'),
     listByLabel: require('./lib/listByLabel'),
+    search: require('./lib/search'),
     user: require('./lib/user')
 };
