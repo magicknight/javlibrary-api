@@ -63,6 +63,7 @@ describe('listByDirector', function() {
         var valid = ajv.validate('listByDirector', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

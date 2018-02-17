@@ -45,6 +45,7 @@ describe('getMostFavStars', function() {
         var valid = ajv.validate('getMostFavStars', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

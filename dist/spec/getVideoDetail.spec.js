@@ -89,15 +89,15 @@ var schema = {
             "type": "array",
             "items": { "$ref": "#/definitions/item" }
         },
-        "cast": {
+        "stars": {
             "type": "array",
             "items": { "$ref": "#/definitions/item" }
         },
-        "preview": {
+        "previews": {
             "type": "array"
         }
     },
-    "required": ["id", "name", "date", "length", "director", "directorID", "maker", "makerID", "label", "labelID", "rate", "cover", "tags", "cast", "preview"]
+    "required": ["id", "name", "date", "length", "director", "directorID", "maker", "makerID", "label", "labelID", "rate", "cover", "tags", "stars", "previews"]
 };
 var ajv = new require('ajv')();
 
@@ -119,6 +119,7 @@ describe('getVideoDetail', function () {
 
 
                         if (!valid) {
+                            console.error(results);
                             console.error(ajv.errorsText());
                         }
 

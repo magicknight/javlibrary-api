@@ -10,11 +10,11 @@ var schema = {
             "additionalProperties": false,
             "properties": {
                 "date": { "type": "string" },
-                "desc": { "type": "string" },
-                "nickname": { "type": "string" },
+                "content": { "type": "string" },
+                "username": { "type": "string" },
                 "location": { "type": "string" },
             },
-            "required": [ "date", "desc", "nickname", "location" ]
+            "required": [ "date", "content", "username", "location" ]
         }
     },
 
@@ -40,9 +40,8 @@ describe('getVideoReviews', function() {
         var results = await getVideoReviews('javliida3q');
         var valid = ajv.validate('getVideoReviews', results);
 
-        console.log('%O', results);
-
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

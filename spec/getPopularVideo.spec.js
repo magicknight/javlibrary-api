@@ -2,7 +2,7 @@
 /* global describe it */
 
 var assert = require('assert');
-var getNewReleases = require('../lib/getNewReleases');
+var getPopularVideo = require('../lib/getPopularVideo');
 var schema = {
     "definitions": {
         "item": {
@@ -36,15 +36,7 @@ var schema = {
     "additionalProperties": false,
     "properties": {
         "next": {
-            "oneOf": [
-                {
-                    "type": "object",
-                    "required": [ "page" ]
-                },
-                {
-                    "type": "boolean"
-                }
-            ]
+            "type": "boolean"
         },
         "list": {
             "type": "array",
@@ -55,27 +47,12 @@ var schema = {
 };
 var ajv = new require('ajv')();
 
-ajv.addSchema(schema, 'getNewReleases');
+ajv.addSchema(schema, 'getPopularVideo');
 
-describe('getNewReleases', function() {
-    it('parser new releases results', async function() {
-        var results = await getNewReleases();
-        var valid = ajv.validate('getNewReleases', results);
-
-        if (!valid) {
-            console.error(results);
-            console.error(ajv.errorsText());
-        }
-
-        assert.equal(
-            valid,
-            true,
-        );
-    });
-
-    it('parser new releases results without next page', async function() {
-        var results = await getNewReleases({ page: 99 });
-        var valid = ajv.validate('getNewReleases', results);
+describe('getPopularVideo', function() {
+    it('parser popular video results', async function() {
+        var results = await getPopularVideo();
+        var valid = ajv.validate('getPopularVideo', results);
 
         if (!valid) {
             console.error(results);

@@ -63,6 +63,7 @@ describe('getMostWanted', function() {
         var valid = ajv.validate('getMostWanted', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 
@@ -77,6 +78,7 @@ describe('getMostWanted', function() {
         var valid = ajv.validate('getMostWanted', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

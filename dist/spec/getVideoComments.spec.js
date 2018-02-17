@@ -54,6 +54,7 @@ describe('getVideoComments', function () {
 
 
                         if (!valid) {
+                            console.error(results);
                             console.error(ajv.errorsText());
                         }
 

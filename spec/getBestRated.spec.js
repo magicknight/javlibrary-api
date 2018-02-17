@@ -63,6 +63,7 @@ describe('getBestRated', function() {
         var valid = ajv.validate('getBestRated', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

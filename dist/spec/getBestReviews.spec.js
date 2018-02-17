@@ -110,6 +110,7 @@ describe('getBestReviews', function () {
 
 
                         if (!valid) {
+                            console.error(results);
                             console.error(ajv.errorsText());
                         }
 
@@ -138,6 +139,7 @@ describe('getBestReviews', function () {
 
 
                         if (!valid) {
+                            console.error(results);
                             console.error(ajv.errorsText());
                         }
 

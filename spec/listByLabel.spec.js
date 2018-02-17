@@ -63,6 +63,7 @@ describe('listByLabel', function() {
         var valid = ajv.validate('listByLabel', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

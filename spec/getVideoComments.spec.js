@@ -41,6 +41,7 @@ describe('getVideoComments', function() {
         var valid = ajv.validate('getVideoComments', results);
 
         if (!valid) {
+            console.error(results);
             console.error(ajv.errorsText());
         }
 

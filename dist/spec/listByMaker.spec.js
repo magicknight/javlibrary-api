@@ -73,6 +73,7 @@ describe('listByMaker', function () {
 
 
                         if (!valid) {
+                            console.error(results);
                             console.error(ajv.errorsText());
                         }
 
@@ -101,6 +102,7 @@ describe('listByMaker', function () {
 
 
                         if (!valid) {
+                            console.error(results);
                             console.error(ajv.errorsText());
                         }
 

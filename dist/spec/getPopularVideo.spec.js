@@ -5,7 +5,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* global describe it */
 
 var assert = require('assert');
-var getBestRated = require('../lib/getBestRated');
+var getPopularVideo = require('../lib/getPopularVideo');
 var schema = {
     "definitions": {
         "item": {
@@ -39,12 +39,7 @@ var schema = {
     "additionalProperties": false,
     "properties": {
         "next": {
-            "oneOf": [{
-                "type": "object",
-                "required": ["page"]
-            }, {
-                "type": "boolean"
-            }]
+            "type": "boolean"
         },
         "list": {
             "type": "array",
@@ -55,21 +50,21 @@ var schema = {
 };
 var ajv = new require('ajv')();
 
-ajv.addSchema(schema, 'getBestRated');
+ajv.addSchema(schema, 'getPopularVideo');
 
-describe('getBestRated', function () {
-    it('parser best rated results', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+describe('getPopularVideo', function () {
+    it('parser popular video results', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var results, valid;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return getBestRated();
+                        return getPopularVideo();
 
                     case 2:
                         results = _context.sent;
-                        valid = ajv.validate('getBestRated', results);
+                        valid = ajv.validate('getPopularVideo', results);
 
 
                         if (!valid) {
@@ -85,33 +80,5 @@ describe('getBestRated', function () {
                 }
             }
         }, _callee, this);
-    })));
-
-    it('parser best rated results without next page', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var results, valid;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-            while (1) {
-                switch (_context2.prev = _context2.next) {
-                    case 0:
-                        _context2.next = 2;
-                        return getBestRated({ page: 99 });
-
-                    case 2:
-                        results = _context2.sent;
-                        valid = ajv.validate('getBestRated', results);
-
-
-                        if (!valid) {
-                            console.error(ajv.errorsText());
-                        }
-
-                        assert.equal(valid, true);
-
-                    case 6:
-                    case 'end':
-                        return _context2.stop();
-                }
-            }
-        }, _callee2, this);
     })));
 });
