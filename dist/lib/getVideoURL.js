@@ -1,51 +1,5 @@
 'use strict';
 
-var parse = function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(uri) {
-        var response, $, data;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-                switch (_context.prev = _context.next) {
-                    case 0:
-                        _context.prev = 0;
-                        _context.next = 3;
-                        return _request2.default.get({
-                            baseUrl: '',
-                            uri: uri
-                        });
-
-                    case 3:
-                        response = _context.sent;
-                        $ = _cheerio2.default.load(response, {
-                            decodeEntities: false
-                        });
-                        data = _scrapeIt2.default.scrapeHTML($, {
-                            src: {
-                                selector: '#video-player source',
-                                attr: 'src'
-                            }
-                        });
-                        return _context.abrupt('return', data.src);
-
-                    case 9:
-                        _context.prev = 9;
-                        _context.t0 = _context['catch'](0);
-
-                        error('%O', _context.t0);
-
-                    case 12:
-                    case 'end':
-                        return _context.stop();
-                }
-            }
-        }, _callee, this, [[0, 9]]);
-    }));
-
-    return function parse(_x) {
-        return _ref.apply(this, arguments);
-    };
-}();
-
 var _debug2 = require('debug');
 
 var _debug3 = _interopRequireDefault(_debug2);
@@ -70,14 +24,14 @@ var debug = (0, _debug3.default)('dev:' + __filename);
 var error = (0, _debug3.default)('dev:' + __filename);
 
 module.exports = function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(no) {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(no) {
         var response, video;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
-                switch (_context2.prev = _context2.next) {
+                switch (_context.prev = _context.next) {
                     case 0:
-                        _context2.prev = 0;
-                        _context2.next = 3;
+                        _context.prev = 0;
+                        _context.next = 3;
                         return _request2.default.get({
                             baseUrl: '',
                             uri: 'https://api.avgle.com/v1/search/' + no + '/0',
@@ -85,10 +39,10 @@ module.exports = function () {
                         });
 
                     case 3:
-                        response = _context2.sent;
+                        response = _context.sent;
 
                         if (!(response.success && response.response && response.response.videos.length)) {
-                            _context2.next = 12;
+                            _context.next = 12;
                             break;
                         }
 
@@ -96,36 +50,36 @@ module.exports = function () {
 
 
                         debug('Video:\n%O', video);
-                        _context2.t0 = video['preview_video_url'];
-                        _context2.next = 10;
+                        _context.t0 = video['preview_video_url'];
+                        _context.next = 10;
                         return parse(video['video_url']);
 
                     case 10:
-                        _context2.t1 = _context2.sent;
-                        return _context2.abrupt('return', {
-                            preview: _context2.t0,
-                            src: _context2.t1
+                        _context.t1 = _context.sent;
+                        return _context.abrupt('return', {
+                            preview: _context.t0,
+                            src: _context.t1
                         });
 
                     case 12:
-                        _context2.next = 17;
+                        _context.next = 17;
                         break;
 
                     case 14:
-                        _context2.prev = 14;
-                        _context2.t2 = _context2['catch'](0);
+                        _context.prev = 14;
+                        _context.t2 = _context['catch'](0);
 
-                        error('%O', _context2.t2);
+                        error('%O', _context.t2);
 
                     case 17:
                     case 'end':
-                        return _context2.stop();
+                        return _context.stop();
                 }
             }
-        }, _callee2, undefined, [[0, 14]]);
+        }, _callee, undefined, [[0, 14]]);
     }));
 
-    return function (_x2) {
-        return _ref2.apply(this, arguments);
+    return function (_x) {
+        return _ref.apply(this, arguments);
     };
 }();
