@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getBestRated = require('../lib/getBestRated');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'getBestRated');
 
 describe('getBestRated', function() {
     it('parser best rated results', async function() {
-        var results = await getBestRated();
+        var results = await jav.getBestRated();
         var valid = ajv.validate('getBestRated', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('getBestRated', function() {
     });
 
     it('parser best rated results without next page', async function() {
-        var results = await getBestRated({ page: 99 });
+        var results = await jav.getBestRated({ page: 99 });
         var valid = ajv.validate('getBestRated', results);
 
         if (!valid) {

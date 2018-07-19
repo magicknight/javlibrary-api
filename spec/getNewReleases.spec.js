@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getNewReleases = require('../lib/getNewReleases');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'getNewReleases');
 
 describe('getNewReleases', function() {
     it('parser new releases results', async function() {
-        var results = await getNewReleases();
+        var results = await jav.getNewReleases();
         var valid = ajv.validate('getNewReleases', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('getNewReleases', function() {
     });
 
     it('parser new releases results without next page', async function() {
-        var results = await getNewReleases({ page: 99 });
+        var results = await jav.getNewReleases({ page: 99 });
         var valid = ajv.validate('getNewReleases', results);
 
         if (!valid) {

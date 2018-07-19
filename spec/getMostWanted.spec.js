@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getMostWanted = require('../lib/getMostWanted');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'getMostWanted');
 
 describe('getMostWanted', function() {
     it('parser most wanted results', async function() {
-        var results = await getMostWanted();
+        var results = await jav.getMostWanted();
         var valid = ajv.validate('getMostWanted', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('getMostWanted', function() {
     });
 
     it('parser most wanted results without next page', async function() {
-        var results = await getMostWanted({ page: 99 });
+        var results = await jav.getMostWanted({ page: 99 });
         var valid = ajv.validate('getMostWanted', results);
 
         if (!valid) {

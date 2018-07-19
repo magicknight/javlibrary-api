@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var search = require('../lib/search');
 var schema = {
     "type": "object",
     "additionalProperties": false,
@@ -21,8 +21,8 @@ var ajv = new require('ajv')();
 ajv.addSchema(schema, 'search');
 
 describe('search', function() {
-    it('list all video by tag', async function() {
-        var results = await search('bbi 142');
+    it('search video', async function() {
+        var results = await jav.search('bbi 142');
         var valid = ajv.validate('search', results);
 
         if (!valid) {

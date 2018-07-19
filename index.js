@@ -1,5 +1,6 @@
 
 module.exports = {
+    config: require('./utils/request').config,
     getPopularVideo: require('./lib/getPopularVideo'),
     getBestReviews: require('./lib/getBestReviews'),
     getMostFavStars: require('./lib/getMostFavStars'),

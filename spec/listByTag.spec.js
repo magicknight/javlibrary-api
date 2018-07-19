@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var listByTag = require('../lib/listByTag');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'listByTag');
 
 describe('listByTag', function() {
     it('list all video by tag', async function() {
-        var results = await listByTag({ id: 'ae' });
+        var results = await jav.listByTag({ id: 'ae' });
         var valid = ajv.validate('listByTag', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('listByTag', function() {
     });
 
     it('list all video by tag without next page', async function() {
-        var results = await listByTag({ id: 'ae', page: 99 });
+        var results = await jav.listByTag({ id: 'ae', page: 99 });
         var valid = ajv.validate('listByTag', results);
 
         if (!valid) {

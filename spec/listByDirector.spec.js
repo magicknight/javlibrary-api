@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var listByDirector = require('../lib/listByDirector');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'listByDirector');
 
 describe('listByDirector', function() {
     it('list all video by director', async function() {
-        var results = await listByDirector({ id: 'kyda' });
+        var results = await jav.listByDirector({ id: 'kyda' });
         var valid = ajv.validate('listByDirector', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('listByDirector', function() {
     });
 
     it('list all video by director without next page', async function() {
-        var results = await listByDirector({ id: 'kyda', page: 99 });
+        var results = await jav.listByDirector({ id: 'kyda', page: 99 });
         var valid = ajv.validate('listByDirector', results);
 
         if (!valid) {

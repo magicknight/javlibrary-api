@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getNewComments = require('../lib/getNewComments');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'getNewComments');
 
 describe('getNewComments', function() {
     it('parser new comments results', async function() {
-        var results = await getNewComments();
+        var results = await jav.getNewComments();
         var valid = ajv.validate('getNewComments', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('getNewComments', function() {
     });
 
     it('parser new comments results without next page', async function() {
-        var results = await getNewComments({ page: 99 });
+        var results = await jav.getNewComments({ page: 99 });
         var valid = ajv.validate('getNewComments', results);
 
         if (!valid) {

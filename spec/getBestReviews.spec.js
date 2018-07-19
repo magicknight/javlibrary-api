@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getBestReviews = require('../lib/getBestReviews');
 var schema = {
     "definitions": {
         "item": {
@@ -102,7 +102,7 @@ ajv.addSchema(schema, 'getBestReviews');
 
 describe('getBestReviews', function() {
     it('parser best reviews results', async function() {
-        var results = await getBestReviews();
+        var results = await jav.getBestReviews();
         var valid = ajv.validate('getBestReviews', results);
 
         if (!valid) {
@@ -117,7 +117,7 @@ describe('getBestReviews', function() {
     });
 
     it('parser best reviews results order by all', async function() {
-        var results = await getBestReviews({ order: 2 });
+        var results = await jav.getBestReviews({ order: 2 });
         var valid = ajv.validate('getBestReviews', results);
 
         if (!valid) {

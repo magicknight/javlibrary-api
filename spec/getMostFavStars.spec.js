@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getMostFavStars = require('../lib/getMostFavStars');
 var schema = {
     "definitions": {
         "item": {
@@ -41,7 +41,7 @@ ajv.addSchema(schema, 'getMostFavStars');
 
 describe('getMostFavStars', function() {
     it('parser most favorite stars results', async function() {
-        var results = await getMostFavStars();
+        var results = await jav.getMostFavStars();
         var valid = ajv.validate('getMostFavStars', results);
 
         if (!valid) {

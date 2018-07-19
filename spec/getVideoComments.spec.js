@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getVideoComments = require('../lib/getVideoComments');
 var schema = {
     "definitions": {
         "item": {
@@ -37,7 +37,7 @@ ajv.addSchema(schema, 'getVideoComments');
 
 describe('getVideoComments', function() {
     it('parser video comments results', async function() {
-        var results = await getVideoComments('javliida3q');
+        var results = await jav.getVideoComments('javliida3q');
         var valid = ajv.validate('getVideoComments', results);
 
         if (!valid) {

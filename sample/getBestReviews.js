@@ -1,12 +1,9 @@
 
-var getBestReviews = require('../lib/getBestReviews');
+var jav = require('./createInstance')();
 
 (
     async() => {
-        var list = getBestReviews();
-
-        for (let i in list) {
-            console.log(i);
-        }
+        var res = await jav.getBestReviews();
+        console.log(res.size);
     }
 )();

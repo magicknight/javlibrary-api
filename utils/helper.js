@@ -21,7 +21,7 @@ const URL_LISTBYDIRECTOR = '/vl_director.php?d=';
 const URL_LISTBYTAG = '/vl_genre.php?g=';
 const URL_LISTBYMAKER = '/vl_maker.php?m=';
 const URL_LISTBYLABEL = '/vl_label.php?l=';
-const URL_SEARCH = 'http://www.javlibrary.com/en/vl_searchbyid.php?keyword=';
+const URL_SEARCH = '/vl_searchbyid.php?keyword=';
 
 function getResourceID(regex, link) {
     var match = link.match(regex);

@@ -1,8 +1,8 @@
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var listByMaker = require('../lib/listByMaker');
 var schema = {
     "definitions": {
         "item": {
@@ -59,7 +59,7 @@ ajv.addSchema(schema, 'listByMaker');
 
 describe('listByMaker', function() {
     it('list all video by maker', async function() {
-        var results = await listByMaker({ id: 'mzkq' });
+        var results = await jav.listByMaker({ id: 'mzkq' });
         var valid = ajv.validate('listByMaker', results);
 
         if (!valid) {
@@ -74,7 +74,7 @@ describe('listByMaker', function() {
     });
 
     it('list all video by maker without next page', async function() {
-        var results = await listByMaker({ id: 'mzkq', page: 99 });
+        var results = await jav.listByMaker({ id: 'mzkq', page: 99 });
         var valid = ajv.validate('listByMaker', results);
 
         if (!valid) {
