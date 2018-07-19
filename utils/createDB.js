@@ -7,11 +7,11 @@ import request from './request';
 
 const baseURL = 'http://warashi-asian-pornstars.fr';
 const pool = new Pool({
-    host: '121.42.149.230',
     port: 5432,
-    user: 'postgres',
-    password: 'abc123...',
-    database: 'vigo',
+    host: '...',
+    user: '...',
+    password: '...',
+    database: '...',
     max: 20,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,

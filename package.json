@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "node node_modules/.bin/eslint .",
     "test": "mocha -t 10000 --compilers js:babel-core/register ./spec/**/*.spec.js",
-    "dev": "cross-env NODE_ENV=development AUTORUN=1 DEBUG_COLORS=true DEBUG=dev:*,-not_this node -r babel-register test.js",
+    "sample": "cross-env NODE_ENV=development AUTORUN=1 DEBUG_COLORS=true DEBUG=dev:*,-not_this node -r babel-register",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./yarn.lock,./npm-debug.log --copy-files"
   },
   "license": "MIT",
