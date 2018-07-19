@@ -4,8 +4,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var search = require('../lib/search');
 var schema = {
     "type": "object",
     "additionalProperties": false,
@@ -24,14 +24,14 @@ var ajv = new require('ajv')();
 ajv.addSchema(schema, 'search');
 
 describe('search', function () {
-    it('list all video by tag', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    it('search video', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var results, valid;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return search('bbi 142');
+                        return jav.search('bbi 142');
 
                     case 2:
                         results = _context.sent;

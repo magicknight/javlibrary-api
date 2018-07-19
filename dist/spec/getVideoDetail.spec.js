@@ -4,8 +4,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getVideoDetail = require('../lib/getVideoDetail');
 var schema = {
     "definitions": {
         "item": {
@@ -111,7 +111,7 @@ describe('getVideoDetail', function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return getVideoDetail('javliida3q');
+                        return jav.getVideoDetail('javliida3q');
 
                     case 2:
                         results = _context.sent;

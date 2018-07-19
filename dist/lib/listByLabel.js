@@ -6,8 +6,6 @@ var _debug3 = _interopRequireDefault(_debug2);
 
 var _request = require('../utils/request');
 
-var _request2 = _interopRequireDefault(_request);
-
 var _helper = require('../utils/helper');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -44,16 +42,17 @@ module.exports = function () {
             _ref2$page = _ref2.page,
             page = _ref2$page === undefined ? 1 : _ref2$page;
 
-        var response, data;
+        var request, response, data;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.prev = 0;
-                        _context.next = 3;
-                        return _request2.default.get('' + _helper.URL_LISTBYLABEL + id + '&page=' + page);
+                        request = (0, _request.createRequest)();
+                        _context.next = 4;
+                        return request.get('' + _helper.URL_LISTBYLABEL + id + '&page=' + page);
 
-                    case 3:
+                    case 4:
                         response = _context.sent;
                         data = (0, _helper.parseList)(response, {
                             id: id, page: page
@@ -63,18 +62,18 @@ module.exports = function () {
                         debug('%O', data);
                         return _context.abrupt('return', data);
 
-                    case 9:
-                        _context.prev = 9;
+                    case 10:
+                        _context.prev = 10;
                         _context.t0 = _context['catch'](0);
 
                         error('%O', _context.t0);
 
-                    case 12:
+                    case 13:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, undefined, [[0, 9]]);
+        }, _callee, undefined, [[0, 10]]);
     }));
 
     return function () {

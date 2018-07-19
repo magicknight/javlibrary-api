@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _url = require('url');
 
 var _url2 = _interopRequireDefault(_url);
@@ -14,6 +16,8 @@ var _requestPromise2 = _interopRequireDefault(_requestPromise);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var defaultOptions = {};
+
 function getInstance() {
     var lang = process.env.lang || 'en';
     var agent;
@@ -26,16 +30,16 @@ function getInstance() {
         agent = new _httpsProxyAgent2.default(_url2.default.parse(process.env.http_proxy));
     }
 
-    return _requestPromise2.default.defaults({
+    return _requestPromise2.default.defaults(_extends({
         baseUrl: 'http://www.javlibrary.com/' + lang + '/',
-        headers: {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
-        },
         simple: false,
         agent: agent
-    });
+    }, defaultOptions));
 }
 
-var instance = getInstance();
-
-module.exports = instance;
+module.exports = {
+    config: function config(options) {
+        return defaultOptions = options;
+    },
+    createRequest: getInstance
+};

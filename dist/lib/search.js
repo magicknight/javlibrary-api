@@ -4,9 +4,7 @@ var _debug2 = require('debug');
 
 var _debug3 = _interopRequireDefault(_debug2);
 
-var _request = require('request');
-
-var _request2 = _interopRequireDefault(_request);
+var _request = require('../utils/request');
 
 var _helper = require('../utils/helper');
 
@@ -31,8 +29,9 @@ module.exports = function () {
                         keywords = keywords.split(' ').join('+');
 
                         return _context.abrupt('return', new Promise(function (resolve) {
+                            var request = (0, _request.createRequest)();
                             try {
-                                var r = _request2.default.get('' + _helper.URL_SEARCH + keywords, function () {
+                                var r = request.get('' + _helper.URL_SEARCH + keywords, function () {
                                     var href = r.uri.href;
                                     var matched = href.match(/v=(jav\w+)$/);
 

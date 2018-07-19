@@ -150,11 +150,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var baseURL = 'http://warashi-asian-pornstars.fr';
 var pool = new _pg.Pool({
-    host: '121.42.149.230',
     port: 5432,
-    user: 'postgres',
-    password: 'abc123...',
-    database: 'vigo',
+    host: '...',
+    user: '...',
+    password: '...',
+    database: '...',
     max: 20,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000

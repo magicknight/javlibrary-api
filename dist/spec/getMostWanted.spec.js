@@ -4,8 +4,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* global describe it */
 
+var jav = require('../sample/createInstance')();
 var assert = require('assert');
-var getMostWanted = require('../lib/getMostWanted');
 var schema = {
     "definitions": {
         "item": {
@@ -65,7 +65,7 @@ describe('getMostWanted', function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return getMostWanted();
+                        return jav.getMostWanted();
 
                     case 2:
                         results = _context.sent;
@@ -94,7 +94,7 @@ describe('getMostWanted', function () {
                 switch (_context2.prev = _context2.next) {
                     case 0:
                         _context2.next = 2;
-                        return getMostWanted({ page: 99 });
+                        return jav.getMostWanted({ page: 99 });
 
                     case 2:
                         results = _context2.sent;

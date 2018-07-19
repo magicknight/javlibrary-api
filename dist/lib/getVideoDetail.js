@@ -14,8 +14,6 @@ var _scrapeIt2 = _interopRequireDefault(_scrapeIt);
 
 var _request = require('../utils/request');
 
-var _request2 = _interopRequireDefault(_request);
-
 var _helper = require('../utils/helper');
 
 var _helper2 = _interopRequireDefault(_helper);
@@ -64,7 +62,7 @@ var error = (0, _debug3.default)('dev:' + __filename);
  * */
 module.exports = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
-        var response, $, data, parts, _id, previews, length, image;
+        var request, response, $, data, parts, _id, previews, length, image;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -73,10 +71,11 @@ module.exports = function () {
                         debug(id);
 
                         _context.prev = 1;
-                        _context.next = 4;
-                        return _request2.default.get('' + _helper.URL_VIDEODETAIL + id);
+                        request = (0, _request.createRequest)();
+                        _context.next = 5;
+                        return request.get('' + _helper.URL_VIDEODETAIL + id);
 
-                    case 4:
+                    case 5:
                         response = _context.sent;
                         $ = _cheerio2.default.load(response, {
                             decodeEntities: false
@@ -234,18 +233,18 @@ module.exports = function () {
 
                         return _context.abrupt('return', data);
 
-                    case 14:
-                        _context.prev = 14;
+                    case 15:
+                        _context.prev = 15;
                         _context.t0 = _context['catch'](1);
 
                         error('%O', _context.t0);
 
-                    case 17:
+                    case 18:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, undefined, [[1, 14]]);
+        }, _callee, undefined, [[1, 15]]);
     }));
 
     return function (_x) {

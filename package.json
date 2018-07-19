@@ -1,6 +1,6 @@
 {
   "name": "javlibrary-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A Javlibrary.com API client library wrapper with a simple and clean interface.",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "cheerio": "^1.0.0-rc.2",
     "https-proxy-agent": "^2.1.1",
     "request-promise": "^4.2.2",
-    "scrape-it": "^4.1.0",
+    "scrape-it": "^5.0.5",
     "tinyreq": "^3.3.0"
   },
   "devDependencies": {

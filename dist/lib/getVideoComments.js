@@ -14,8 +14,6 @@ var _scrapeIt2 = _interopRequireDefault(_scrapeIt);
 
 var _request = require('../utils/request');
 
-var _request2 = _interopRequireDefault(_request);
-
 var _helper = require('../utils/helper');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -40,16 +38,17 @@ var error = (0, _debug3.default)('dev:' + __filename);
  * */
 module.exports = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
-        var response, $, data;
+        var request, response, $, data;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.prev = 0;
-                        _context.next = 3;
-                        return _request2.default.get('' + _helper.URL_VIDEOCOMMENTS + id);
+                        request = (0, _request.createRequest)();
+                        _context.next = 4;
+                        return request.get('' + _helper.URL_VIDEOCOMMENTS + id);
 
-                    case 3:
+                    case 4:
                         response = _context.sent;
                         $ = _cheerio2.default.load(response, {
                             decodeEntities: false
@@ -91,18 +90,18 @@ module.exports = function () {
 
                         return _context.abrupt('return', data);
 
-                    case 11:
-                        _context.prev = 11;
+                    case 12:
+                        _context.prev = 12;
                         _context.t0 = _context['catch'](0);
 
                         error('%O', _context.t0);
 
-                    case 14:
+                    case 15:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, undefined, [[0, 11]]);
+        }, _callee, undefined, [[0, 12]]);
     }));
 
     return function (_x) {
