@@ -78,7 +78,7 @@ while 1:
 ```
 
 Use the session file:
-```
+```javascript
 var jav = require('../index');
 var fs = require('fs');
 var path = require('path');
