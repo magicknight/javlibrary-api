@@ -48,7 +48,7 @@ jav.config(
 ## Sample
 There are a lot of [samples](https://github.com/ken113/javlibrary-api/tree/master/sample) 🤗 If you're trying to figure out how to use an API, look there first!
 ```
-run sample -- ./sample/search.js
+npm run sample -- ./sample/search.js
 ```
 
 ## Session
