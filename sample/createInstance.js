@@ -6,7 +6,7 @@ var path = require('path');
 module.exports = () => {
     var session = fs.readFileSync(path.resolve(__dirname, '../session.txt'), { encoding: 'utf-8' });
 
-    var [cookie, userAgent] = session.split(':');
+    var [cookie, userAgent] = session.split('+');
 
     jav.config(
         {
