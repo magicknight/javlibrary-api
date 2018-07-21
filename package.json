@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "node node_modules/.bin/eslint .",
-    "test": "mocha -t 10000 --compilers js:babel-core/register ./spec/**/*.spec.js",
+    "test": "nyc mocha -t 10000 --compilers js:babel-core/register ./spec/**/*.spec.js",
     "sample": "cross-env NODE_ENV=development AUTORUN=1 DEBUG_COLORS=true DEBUG=dev:*,-not_this node -r babel-register",
     "session": "python2.7 session.py",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./yarn.lock,./npm-debug.log --copy-files"
@@ -36,6 +36,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
     "rimraf": "^2.6.2"
   }
 }

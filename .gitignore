@@ -7,6 +7,7 @@
 release/
 package-lock.json
 test.js
+.nyc_output/*
 *.lock
 
 # Xcode
