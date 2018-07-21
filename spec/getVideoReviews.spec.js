@@ -45,7 +45,7 @@ describe('getVideoReviews', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );

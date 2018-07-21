@@ -20,6 +20,13 @@ var error = (0, _debug3.default)('dev:' + __filename);
     jav: 'javlija45u',
  }
  * */
+
+/**
+ * Get the detail by item id
+ *
+ * @param {string} keywords Number plate.
+ * @returns {object|undefined} A object the if successful. If failure not returned.
+ * */
 module.exports = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(keywords) {
         return regeneratorRuntime.wrap(function _callee$(_context) {

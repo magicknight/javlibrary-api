@@ -67,7 +67,7 @@ describe('getBestRated', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );
@@ -81,7 +81,7 @@ describe('getBestRated', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );

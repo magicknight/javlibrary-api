@@ -7,4 +7,7 @@ node_js:
     - 8
     - 7
 
+before_script:
+    sudo pip install cfscrape
+
 script: npm run lint && npm run session && npm run test && npm run build

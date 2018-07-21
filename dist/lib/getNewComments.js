@@ -34,6 +34,14 @@ var error = (0, _debug3.default)('dev:' + __filename);
     }
  }
  * */
+
+/**
+ * Get the newest commented items
+ *
+ * @param {object} options The pagination info.
+ * @param {number} options.page The page index.
+ * @returns {object|undefined} A object the if successful. If failure not returned.
+ * */
 module.exports = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},

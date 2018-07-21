@@ -123,7 +123,7 @@ describe('getVideoDetail', function () {
                             console.error(ajv.errorsText());
                         }
 
-                        assert.equal(valid, true);
+                        assert.strictEqual(valid, true);
 
                     case 6:
                     case 'end':

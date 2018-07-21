@@ -67,7 +67,7 @@ describe('getNewComments', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );
@@ -82,7 +82,7 @@ describe('getNewComments', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );

@@ -30,6 +30,12 @@ var error = (0, _debug3.default)('dev:' + __filename);
     ],
  }
  * */
+
+/**
+ * Get the most popular items
+ *
+ * @returns {object|undefined} A object the if successful. If failure not returned.
+ * */
 module.exports = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
     var request, response, data;
     return regeneratorRuntime.wrap(function _callee$(_context) {

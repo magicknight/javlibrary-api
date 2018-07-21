@@ -114,7 +114,7 @@ describe('getBestReviews', function () {
                             console.error(ajv.errorsText());
                         }
 
-                        assert.equal(valid, true);
+                        assert.strictEqual(valid, true);
 
                     case 6:
                     case 'end':
@@ -143,7 +143,7 @@ describe('getBestReviews', function () {
                             console.error(ajv.errorsText());
                         }
 
-                        assert.equal(valid, true);
+                        assert.strictEqual(valid, true);
 
                     case 6:
                     case 'end':

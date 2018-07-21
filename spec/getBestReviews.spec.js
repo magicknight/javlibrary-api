@@ -110,7 +110,7 @@ describe('getBestReviews', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );
@@ -125,7 +125,7 @@ describe('getBestReviews', function() {
             console.error(ajv.errorsText());
         }
 
-        assert.equal(
+        assert.strictEqual(
             valid,
             true,
         );

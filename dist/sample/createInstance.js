@@ -9,7 +9,7 @@ var path = require('path');
 module.exports = function () {
     var session = fs.readFileSync(path.resolve(__dirname, '../session.txt'), { encoding: 'utf-8' });
 
-    var _session$split = session.split(':'),
+    var _session$split = session.split('+'),
         _session$split2 = _slicedToArray(_session$split, 2),
         cookie = _session$split2[0],
         userAgent = _session$split2[1];
