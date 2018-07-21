@@ -1,0 +1,107 @@
+![Hero](https://i.imgur.com/ymnsyVQ.gif)
+
+<p align="center">
+ 🐝 This repo name is fully encapsulated.
+</p>
+
+<p align="center">
+<a href="https://travis-ci.org/ken113/javlibrary-api"><img src="https://img.shields.io/travis/ken113/javlibrary-api/master.svg?style=flat-square"></a>
+<a href="https://david-dm.org/ken113/javlibrary-api"><img src="https://david-dm.org/trazyn/ieaseMusic/status.svg?style=flat-square"></a>
+<a href="https://david-dm.org/ken113/javlibrary-api?type=dev"><img src="https://david-dm.org/trazyn/ieaseMusic/dev-status.svg?style=flat-square"></a>
+</p>
+
+> This is a universal wrapper/scraper for the [javlibrary.com](http://javlibrary.com/) that runs on Nodejs.
+
+ - [Installation](#installation)
+ - [Usage](#usage)
+ - [Sample](#sample)
+ - [Session](#session)
+
+## Installation
+```
+npm i ken113/javlibrary-api
+```
+
+## Usage
+The first thing is bypass Cloudflare's anti-bot page, all the content access need with [session](#session).
+
+```javascript
+import jav from 'javlibrary-api';
+
+jav.config(
+    {
+        headers: {
+            'User-Agent': 'required'
+            'Cookie': 'required'
+        }
+    }
+);
+
+(
+    async() => {
+        var res = await jav.getVideoDetail('javliida3q');
+        console.log(res);
+    }
+)();
+```
+
+## Sample
+There are a lot of [samples](https://github.com/ken113/javlibrary-api/tree/master/sample) 🤗 If you're trying to figure out how to use an API, look there first!
+```
+npm run sample -- ./sample/search.js
+```
+
+## Session
+Run the command generate a session file:
+```
+npm run session
+```
+There has a example how to keep a fresh session:
+```python
+import time
+import cfscrape
+import schedule
+
+
+def job():
+    tokens, user_agent = cfscrape.get_cookie_string('http://www.javlibrary.com/') # noqa
+    with open('../session.txt', 'w') as file:
+        file.write('{}+{} \r\n'.format(tokens, user_agent))
+
+
+job()
+schedule.every(30).minutes.do(job)
+
+while 1:
+    schedule.run_pending()
+    time.sleep(1)
+```
+
+Use the session file:
+```javascript
+var jav = require('../index');
+var fs = require('fs');
+var path = require('path');
+
+module.exports = () => {
+    var session = fs.readFileSync(path.resolve(__dirname, '../session.txt'), { encoding: 'utf-8' });
+
+    var [cookie, userAgent] = session.split('+');
+
+    jav.config(
+        {
+            headers: {
+                'User-Agent': userAgent.trim(),
+                'Cookie': cookie.trim()
+            }
+        }
+    );
+
+    return jav;
+};
+```
+
+# API Reference
+{{>main-index~}}
+{{>all-docs~}}
+
