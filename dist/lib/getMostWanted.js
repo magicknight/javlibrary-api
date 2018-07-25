@@ -39,12 +39,12 @@ var error = (0, _debug3.default)('dev:' + __filename);
 /**
  * Get the most wanted items
  *
- * @param {object} options The pagination info.
- * @param {number} options.order 0 is order by DESC, 1 is order by ASC.
- * @param {number} options.page The page index.
+ * @param {object} options - The pagination info.
+ * @param {number} options.order - 0 is order by DESC, 1 is order by ASC.
+ * @param {number} options.page - The page index.
  * @returns {object|undefined} A object the if successful. If failure not returned.
  * */
-module.exports = function () {
+var getMostWanted = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
             _ref2$order = _ref2.order,
@@ -86,7 +86,9 @@ module.exports = function () {
         }, _callee, undefined, [[0, 10]]);
     }));
 
-    return function () {
+    return function getMostWanted() {
         return _ref.apply(this, arguments);
     };
 }();
+
+module.exports = getMostWanted;

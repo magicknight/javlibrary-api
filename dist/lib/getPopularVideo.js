@@ -36,35 +36,43 @@ var error = (0, _debug3.default)('dev:' + __filename);
  *
  * @returns {object|undefined} A object the if successful. If failure not returned.
  * */
-module.exports = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var request, response, data;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-            switch (_context.prev = _context.next) {
-                case 0:
-                    _context.prev = 0;
-                    request = (0, _request.createRequest)();
-                    _context.next = 4;
-                    return request.get('/');
+var getPopularVideo = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var request, response, data;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        request = (0, _request.createRequest)();
+                        _context.next = 4;
+                        return request.get('/');
 
-                case 4:
-                    response = _context.sent;
-                    data = (0, _helper.parseList)(response);
+                    case 4:
+                        response = _context.sent;
+                        data = (0, _helper.parseList)(response);
 
 
-                    debug('%O', data);
-                    return _context.abrupt('return', data);
+                        debug('%O', data);
+                        return _context.abrupt('return', data);
 
-                case 10:
-                    _context.prev = 10;
-                    _context.t0 = _context['catch'](0);
+                    case 10:
+                        _context.prev = 10;
+                        _context.t0 = _context['catch'](0);
 
-                    error('%O', _context.t0);
+                        error('%O', _context.t0);
 
-                case 13:
-                case 'end':
-                    return _context.stop();
+                    case 13:
+                    case 'end':
+                        return _context.stop();
+                }
             }
-        }
-    }, _callee, undefined, [[0, 10]]);
-}));
+        }, _callee, undefined, [[0, 10]]);
+    }));
+
+    return function getPopularVideo() {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+module.exports = getPopularVideo;

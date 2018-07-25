@@ -40,10 +40,10 @@ var error = (0, _debug3.default)('dev:' + __filename);
 /**
  * Get the comments by item id
  *
- * @param {string} id ID of the item
+ * @param {string} id - ID of the item
  * @returns {object|undefined} A object the if successful. If failure not returned.
  * */
-module.exports = function () {
+var getVideoComments = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
         var request, response, $, data;
         return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -111,7 +111,9 @@ module.exports = function () {
         }, _callee, undefined, [[0, 12]]);
     }));
 
-    return function (_x) {
+    return function getVideoComments(_x) {
         return _ref.apply(this, arguments);
     };
 }();
+
+module.exports = getVideoComments;

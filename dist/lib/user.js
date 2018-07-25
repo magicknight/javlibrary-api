@@ -1,14 +1,5 @@
 'use strict';
 
-/**
- [
-     {
-        id: 'javlipz62q',
-        videoid: '23248034',
-        name: 'MIDD-791 1日10回射精しても止まらないオーガズムSEX 大橋未久',
-     }
- ]
- * */
 var getFavVideo = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(cookie) {
         var request, response, $, data;
@@ -171,17 +162,6 @@ var removeFavVideo = function () {
         return _ref3.apply(this, arguments);
     };
 }();
-
-/**
- [
-     {
-        id: 'oy6a',
-        castid: '3102001',
-        name: '桜木凛',
-     }
- ]
- * */
-
 
 var getFavStar = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(cookie) {

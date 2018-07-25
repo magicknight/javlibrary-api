@@ -24,10 +24,10 @@ var error = (0, _debug3.default)('dev:' + __filename);
 /**
  * Get the detail by item id
  *
- * @param {string} keywords Number plate.
+ * @param {string} keywords - Number plate.
  * @returns {object|undefined} A object the if successful. If failure not returned.
  * */
-module.exports = function () {
+var search = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(keywords) {
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -42,18 +42,30 @@ module.exports = function () {
                                     var href = r.uri.href;
                                     var matched = href.match(/v=(jav\w+)$/);
 
+                                    if (!r.getHeader('referer')) {
+                                        // Handle multiple search results
+                                        var data = (0, _helper.parseList)(r.response.body);
+                                        resolve({
+                                            keywords: keywords,
+                                            jav: data.list.map(function (e) {
+                                                return e.id;
+                                            }).join()
+                                        });
+                                        return;
+                                    }
+
                                     if (matched) {
                                         resolve({
                                             keywords: keywords,
                                             jav: matched[1]
                                         });
                                     } else {
-                                        resolve(false);
+                                        resolve();
                                     }
                                 });
                             } catch (ex) {
                                 error(ex);
-                                resolve(false);
+                                resolve();
                             }
                         }));
 
@@ -65,7 +77,9 @@ module.exports = function () {
         }, _callee, undefined);
     }));
 
-    return function (_x) {
+    return function search(_x) {
         return _ref.apply(this, arguments);
     };
 }();
+
+module.exports = search;

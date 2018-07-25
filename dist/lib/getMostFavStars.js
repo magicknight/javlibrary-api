@@ -43,59 +43,67 @@ var error = (0, _debug3.default)('dev:' + __filename);
  *
  * @returns {object|undefined} A object the if successful. If failure not returned.
  * */
-module.exports = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var request, response, $, data;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-            switch (_context.prev = _context.next) {
-                case 0:
-                    _context.prev = 0;
-                    request = (0, _request.createRequest)();
-                    _context.next = 4;
-                    return request.get('' + _helper.URL_MOSTFAVSTAR);
+var getMostFavStars = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var request, response, $, data;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        request = (0, _request.createRequest)();
+                        _context.next = 4;
+                        return request.get('' + _helper.URL_MOSTFAVSTAR);
 
-                case 4:
-                    response = _context.sent;
-                    $ = _cheerio2.default.load(response, {
-                        decodeEntities: false
-                    });
-                    data = _scrapeIt2.default.scrapeHTML($, {
-                        list: {
-                            listItem: '.searchitem[id]',
-                            data: {
-                                id: {
-                                    attr: 'id'
-                                },
-                                name: {
-                                    selector: 'img',
-                                    attr: 'title'
-                                },
-                                avatar: {
-                                    selector: 'img',
-                                    attr: 'src',
-                                    convert: function convert(x) {
-                                        return (0, _helper.getLink)(x.substring(2, x.length));
+                    case 4:
+                        response = _context.sent;
+                        $ = _cheerio2.default.load(response, {
+                            decodeEntities: false
+                        });
+                        data = _scrapeIt2.default.scrapeHTML($, {
+                            list: {
+                                listItem: '.searchitem[id]',
+                                data: {
+                                    id: {
+                                        attr: 'id'
+                                    },
+                                    name: {
+                                        selector: 'img',
+                                        attr: 'title'
+                                    },
+                                    avatar: {
+                                        selector: 'img',
+                                        attr: 'src',
+                                        convert: function convert(x) {
+                                            return (0, _helper.getLink)(x.substring(2, x.length));
+                                        }
                                     }
                                 }
                             }
-                        }
-                    });
+                        });
 
 
-                    data.size = data.list.length;
-                    debug('%O', data);
-                    return _context.abrupt('return', data);
+                        data.size = data.list.length;
+                        debug('%O', data);
+                        return _context.abrupt('return', data);
 
-                case 12:
-                    _context.prev = 12;
-                    _context.t0 = _context['catch'](0);
+                    case 12:
+                        _context.prev = 12;
+                        _context.t0 = _context['catch'](0);
 
-                    error('%O', _context.t0);
+                        error('%O', _context.t0);
 
-                case 15:
-                case 'end':
-                    return _context.stop();
+                    case 15:
+                    case 'end':
+                        return _context.stop();
+                }
             }
-        }
-    }, _callee, undefined, [[0, 12]]);
-}));
+        }, _callee, undefined, [[0, 12]]);
+    }));
+
+    return function getMostFavStars() {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+module.exports = getMostFavStars;

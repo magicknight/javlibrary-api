@@ -64,10 +64,10 @@ var error = (0, _debug3.default)('dev:' + __filename);
 /**
  * Get the detail by item id
  *
- * @param {string} id ID of the item
+ * @param {string} id - ID of the item
  * @returns {object|undefined} A object the if successful. If failure not returned.
  * */
-module.exports = function () {
+var getVideoDetail = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
         var request, response, $, data, parts, _id, previews, length, image;
 
@@ -254,7 +254,9 @@ module.exports = function () {
         }, _callee, undefined, [[1, 15]]);
     }));
 
-    return function (_x) {
+    return function getVideoDetail(_x) {
         return _ref.apply(this, arguments);
     };
 }();
+
+module.exports = getVideoDetail;
