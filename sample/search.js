@@ -3,7 +3,7 @@ var jav = require('./createInstance')();
 
 (
     async() => {
-        var res = await jav.search('bbi 142');
-        console.log(res);
+        console.log(await jav.search('abp 516'));
+        console.log(await jav.search('midd 751'));
     }
 )();
